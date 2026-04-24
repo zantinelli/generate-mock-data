@@ -7,7 +7,7 @@
 python main.py --size 500 --industry healthcare
 ```
 
-**Depth over breadth on data sources** — I considered adding Azure AD, network logs, vuln scans, etc. I decided 6 solid data types to start would be better than 18 more shallow or incomplete ones. AWS CloudTrail + IAM + auth events + endpoints covers enough to make the security scenarios work.
+**Depth over breadth on data sources** — I considered adding Entra ID, network logs, vulnerability data, k8s logs/conf etc. I decided 6 solid data types to start would be better than 18 more shallow or incomplete ones. AWS CloudTrail, IAM, auth events, and endpoint covers enough to make the security scenarios work.
 
 **Imperfections baked in** — Each generator has intentional imperfections (missing fields, stale refs, inconsistent tags).
 
