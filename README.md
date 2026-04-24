@@ -73,7 +73,7 @@ Or with no prompt for fully random defaults (random industry, random size 100-20
 /generate-mock-data
 ```
 
-![Demo](assets/demo.mp4)
+![Demo](assets/demo.gif)
 
 **Supported industries:**
 
