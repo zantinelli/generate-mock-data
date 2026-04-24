@@ -51,10 +51,10 @@ generate-mock-data/
 ## Installation
 
 ```bash
-git clone https://github.com/zantinelli/generate-mock-data.git
-cd generate-mock-data
+git clone https://github.com/zantinelli/generate-mock-data.git && cd generate-mock-data
 pip install faker pyyaml
-# Now open a claude code session in the project folder you cloned
+
+# Now open a claude code session from the project directory
 ```
 
 ## Usage
