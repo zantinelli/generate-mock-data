@@ -105,7 +105,7 @@ python main.py  # random industry + size 100-2000
 | `--days`     | 30              | Days of activity to generate        |
 | `--output`   | `data`          | Output directory                    |
 
-## Eample output
+## Example output
 
 Output is written to `data/<company-name>/` with every data source in both JSON and YAML:
 
