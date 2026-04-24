@@ -2,7 +2,10 @@
 
 ## Decisions & tradeoffs
 
-**Claude Code skill vs Standalone Python** — I went back and forth on whether to just build a Python CLI. I ended up wrapping the Python program with a Claude Code skill to expand on the AI skills and efficiency conversation we had. The Python script still works standalone, for example: (`python main.py --size 500 --industry healthcare)
+**Claude Code skill vs Standalone Python** — I went back and forth on whether to just build a Python CLI. I ended up wrapping the Python program with a Claude Code skill to expand on the AI skills and efficiency conversation we had. The Python script still works standalone, for example: 
+```bash
+python main.py --size 500 --industry healthcare
+```
 
 **Depth over breadth on data sources** — I considered adding Azure AD, network logs, vuln scans, etc. I decided 6 solid data types to start would be better than 18 more shallow or incomplete ones. AWS CloudTrail + IAM + auth events + endpoints covers enough to make the security scenarios work.
 
