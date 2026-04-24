@@ -113,6 +113,65 @@ def write_all_output(output_dir: Path, all_data: dict) -> None:
         all_data["findings"],
     )
 
+    # Summary
+    write_summary(output_dir, all_data)
+
+
+def write_summary(output_dir: Path, all_data: dict) -> None:
+    """Write a SUMMARY.md describing the generated data."""
+    config = all_data["config"]
+    company = all_data["company"]
+    iam = all_data["iam"]
+    endpoints = all_data["endpoints"]
+    findings = all_data["findings"]
+
+    total_ct = sum(len(v) for v in all_data["cloudtrail"].values())
+    total_auth = sum(len(v) for v in all_data["auth_events"].values())
+    total_proc = sum(len(v) for v in endpoints["process_events"].values())
+
+    scenarios = "\n".join(
+        f"| {f['scenario']} | {f['severity']} | {f.get('target_name', 'N/A')} |"
+        for f in findings
+    )
+
+    summary = f"""# {config.name}
+
+## Company Profile
+
+| | |
+|---|---|
+| Industry | {config.industry} |
+| Employees | {config.size} |
+| Departments | {len(company["departments"])} |
+| Domain | {config.domain} |
+| AWS Account | {config.aws_account_id} |
+| AWS Region | {config.aws_region} |
+| Activity Window | {config.activity_days} days |
+
+## Generated Data
+
+| Data Type | Count |
+|---|---|
+| Employees | {len(company["employees"])} |
+| Service Accounts | {len(company["service_accounts"])} |
+| IAM Users | {len(iam["users"])} |
+| IAM Roles | {len(iam["roles"])} |
+| IAM Policies | {len(iam["policies"])} |
+| Devices | {len(endpoints["devices"])} |
+| CloudTrail Events | {total_ct:,} |
+| Auth Events | {total_auth:,} |
+| Process Events | {total_proc:,} |
+
+## Security Scenarios
+
+| Scenario | Severity | Affected User |
+|---|---|---|
+{scenarios}
+"""
+
+    with open(output_dir / "SUMMARY.md", "w") as f:
+        f.write(summary)
+
 
 def generate(config: CompanyConfig) -> dict:
     """Run the full data generation pipeline."""
@@ -185,6 +244,7 @@ def generate(config: CompanyConfig) -> dict:
     logger.info("Injected %d security scenarios", len(findings))
 
     return {
+        "config": config,
         "company": company_data,
         "iam": iam_data,
         "cloudtrail": cloudtrail,
@@ -242,12 +302,23 @@ def parse_args(argv: list[str] | None = None) -> CompanyConfig:
     )
 
 
+def _slugify(name: str) -> str:
+    """Convert a company name to a filesystem-safe slug."""
+    return (
+        name.lower()
+        .replace(" ", "-")
+        .replace(",", "")
+        .replace(".", "")
+        .replace("'", "")
+    )
+
+
 def main(argv: list[str] | None = None) -> None:
     """Main entry point."""
     config = parse_args(argv)
     all_data = generate(config)
 
-    output_dir = Path(config.output_dir)
+    output_dir = Path(config.output_dir) / _slugify(config.name)
     write_all_output(output_dir, all_data)
 
     logger.info("Done. Output written to %s/", output_dir)
