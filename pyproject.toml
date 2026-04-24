@@ -1,0 +1,57 @@
+[project]
+name = "generate-mock-data"
+version = "0.1.0"
+description = "Generate realistic security demo data for fictional companies"
+requires-python = ">=3.10"
+dependencies = [
+    "faker>=28.0",
+    "pyyaml>=6.0",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "F",      # pyflakes
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "I",      # isort
+    "N",      # pep8-naming
+    "UP",     # pyupgrade
+    "B",      # flake8-bugbear
+    "A",      # flake8-builtins
+    "C4",     # flake8-comprehensions
+    "DTZ",    # flake8-datetimez
+    "ISC",    # flake8-implicit-str-concat
+    "ICN",    # flake8-import-conventions
+    "PIE",    # flake8-pie
+    "PT",     # flake8-pytest-style
+    "Q",      # flake8-quotes
+    "RSE",    # flake8-raise
+    "RET",    # flake8-return
+    "SLF",    # flake8-self
+    "SIM",    # flake8-simplify
+    "TID",    # flake8-tidy-imports
+    "TCH",    # flake8-type-checking
+    "ARG",    # flake8-unused-arguments
+    "ERA",    # eradicate (commented-out code)
+    "PL",     # pylint
+    "PERF",   # perflint
+    "RUF",    # ruff-specific rules
+    "S",      # flake8-bandit (security)
+    "FBT",    # flake8-boolean-trap
+    "LOG",    # flake8-logging
+    "G",      # flake8-logging-format
+]
+ignore = [
+    "S311",    # allow random for non-crypto use (we're generating mock data)
+    "PLR2004", # allow magic values in comparisons
+    "PLR0913", # allow many function arguments
+    "FBT002",  # allow boolean default positional args
+    "DTZ011",  # allow date.today() — timezone irrelevant for mock data generation
+]
+
+[tool.ruff.lint.per-file-ignores]
+"generators/scenarios.py" = ["PLR0911"]  # allow many return statements
