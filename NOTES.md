@@ -16,8 +16,12 @@
 
 ## What I didn't implement
 
-These are a few additional things I'd consider implementing for a real production generator:
+Future potential enhancements:
 
+- **Data Robustness** — Increase the number of data sources and expand on the schema
+- **Additional Security Scenarios** — Increase the number of security scenarios and rotate them randomize them throughout the datasets
+- **Multi-cloud** — AWS only. Spreading across three cloud surfaces would dilute depth without adding much to the security demo.
+- **Multi-cloud** — AWS only. Spreading across three cloud surfaces would dilute depth without adding much to the security demo.
 - **Multi-cloud** — AWS only. Spreading across three cloud surfaces would dilute depth without adding much to the security demo.
 - **Network/DNS logs** — All 6 scenarios are detectable through CloudTrail + auth + IAM. Network logs might be too noisy.
 - **Per-scenario toggles** — All 6 run every time. Easy to add later but premature for a prototype.

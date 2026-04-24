@@ -12,12 +12,13 @@ The primary interface is a **Claude Code skill** that accepts a natural-language
 
 ## Documentation
 
-| Document                       | Description                                                                                |
-| ------------------------------ | ------------------------------------------------------------------------------------------ |
-| [README.md](README.md)         | Project overview, installation, usage, and output reference                                |
-| [ASSIGNMENT.md](ASSIGNMENT.md) | Original assignment and evaluation criteria                                                |
-| [PLAN.md](PLAN.md)             | Claude implementation plan — architecture, data flow, skill design, and verification steps |
-| [NOTES.md](NOTES.md)           | Design decisions and tradeoffs                                                             |
+| Document                                               | Description                                                                                |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| [README.md](README.md)                                 | Project overview, installation, usage, and output reference                                |
+| [ASSIGNMENT.md](ASSIGNMENT.md)                         | Original assignment and evaluation criteria                                                |
+| [PLAN.md](PLAN.md)                                     | Claude implementation plan — architecture, data flow, skill design, and verification steps |
+| [NOTES.md](NOTES.md)                                   | Design decisions and tradeoffs                                                             |
+| [SKILL.md](.claude/skills/generate-mock-data/SKILL.md) | Skill Prompt                                                                               |
 
 ## Project Structure
 
@@ -62,7 +63,7 @@ claude
 
 ### Via Claude Code Skill
 
-The skill auto-registers from the `.claude/skills/` directory when a claude session is opened in the project directory:
+The skill is detected from the `.claude/skills/` directory when a claude session is opened in the project directory:
 
 ```
 /generate-mock-data 500 person healthcare company
