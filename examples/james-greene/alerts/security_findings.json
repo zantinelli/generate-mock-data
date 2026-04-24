@@ -1,0 +1,78 @@
+[
+  {
+    "scenario": "over_permissioned_user",
+    "severity": "HIGH",
+    "target_employee": "EMP-001246",
+    "target_name": "Troy Kim",
+    "description": "SEO Specialist in Marketing has AdministratorAccess policy attached but only performs basic read operations",
+    "iam_user": "troy.kim",
+    "policy": "AdministratorAccess",
+    "detected_date": "2026-04-11"
+  },
+  {
+    "scenario": "impossible_travel",
+    "severity": "CRITICAL",
+    "target_employee": "EMP-001061",
+    "target_name": "Steven Alvarez",
+    "description": "Login from New York at 17:15 UTC, then Singapore at 17:35 UTC (20 minutes apart, ~15,000 km distance)",
+    "detected_date": "2026-04-04",
+    "locations": [
+      "New York, US",
+      "Singapore, SG"
+    ],
+    "time_gap_minutes": 20
+  },
+  {
+    "scenario": "off_hours_access",
+    "severity": "MEDIUM",
+    "target_employee": "EMP-001096",
+    "target_name": "Paige Hernandez",
+    "description": "Engineer accessed production S3 and EC2 resources between 2:00-4:00 AM UTC on 2026-04-07, outside their normal working pattern",
+    "detected_date": "2026-04-07",
+    "num_events": 15,
+    "time_range": "02:00-04:00 UTC"
+  },
+  {
+    "scenario": "privilege_escalation",
+    "severity": "CRITICAL",
+    "target_employee": "EMP-001062",
+    "target_name": "Matthew Zimmerman",
+    "description": "User modified their own IAM policy via PutUserPolicy and AttachUserPolicy, then accessed secrets and KMS resources they previously could not",
+    "detected_date": "2026-04-15",
+    "actions": [
+      "iam:PutUserPolicy",
+      "iam:AttachUserPolicy"
+    ]
+  },
+  {
+    "scenario": "credential_stuffing",
+    "severity": "CRITICAL",
+    "description": "57 failed login attempts from 185.220.101.42 against 20 accounts, followed by 2 successful logins",
+    "detected_date": "2026-03-31",
+    "source_ip": "185.220.101.42",
+    "source_geo": "Russia",
+    "failed_attempts": 57,
+    "successful_logins": 2,
+    "compromised_accounts": [
+      {
+        "employee_id": "EMP-001327",
+        "name": "Barbara Collins"
+      },
+      {
+        "employee_id": "EMP-001116",
+        "name": "Melissa Johnson"
+      }
+    ]
+  },
+  {
+    "scenario": "data_exfiltration",
+    "severity": "CRITICAL",
+    "target_employee": "EMP-001039",
+    "target_name": "Carolyn Jones",
+    "description": "475 S3 GetObject calls to james-greene-prod-data in a 2-hour window (normal baseline: 5-10/day)",
+    "detected_date": "2026-04-15",
+    "bucket": "james-greene-prod-data",
+    "num_calls": 475,
+    "time_window_hours": 2
+  }
+]

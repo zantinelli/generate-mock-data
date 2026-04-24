@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Engineering",
+    "budget_code": "ENG-4278",
+    "headcount": 110,
+    "head_id": "EMP-001046"
+  },
+  {
+    "name": "Sales",
+    "budget_code": "SAL-3929",
+    "headcount": 65,
+    "head_id": "EMP-001162"
+  },
+  {
+    "name": "Operations",
+    "budget_code": "OPE-4772",
+    "headcount": 60,
+    "head_id": "EMP-001204"
+  },
+  {
+    "name": "Marketing",
+    "budget_code": "MAR-5070",
+    "headcount": 40,
+    "head_id": "EMP-001273"
+  },
+  {
+    "name": "Finance",
+    "budget_code": "FIN-3183",
+    "headcount": 40,
+    "head_id": "EMP-001286"
+  },
+  {
+    "name": "Customer Support",
+    "budget_code": "CUS-2418",
+    "headcount": 35,
+    "head_id": "EMP-001337"
+  },
+  {
+    "name": "Product",
+    "budget_code": "PRO-5114",
+    "headcount": 30,
+    "head_id": "EMP-001360"
+  },
+  {
+    "name": "Human Resources",
+    "budget_code": "HUM-7276",
+    "headcount": 25,
+    "head_id": "EMP-001380"
+  },
+  {
+    "name": "IT",
+    "budget_code": "IT-9696",
+    "headcount": 30,
+    "head_id": "EMP-001405"
+  },
+  {
+    "name": "Legal",
+    "budget_code": "LEG-9824",
+    "headcount": 20,
+    "head_id": "EMP-001451"
+  },
+  {
+    "name": "Research & Development",
+    "budget_code": "RES-2471",
+    "headcount": 20,
+    "head_id": "EMP-001455"
+  },
+  {
+    "name": "Security",
+    "budget_code": "SEC-9016",
+    "headcount": 15,
+    "head_id": "EMP-001475"
+  },
+  {
+    "name": "Executive",
+    "budget_code": "EXE-4268",
+    "headcount": 10,
+    "head_id": "EMP-001496"
+  }
+]
