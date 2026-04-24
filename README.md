@@ -62,7 +62,7 @@ claude
 
 ### Via Claude Code Skill
 
-The skill auto-registers from the `.claude/skills/` directory when a claude session is opened in project directory:
+The skill auto-registers from the `.claude/skills/` directory when a claude session is opened in the project directory:
 
 ```
 /generate-mock-data 500 person healthcare company
