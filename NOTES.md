@@ -2,15 +2,15 @@
 
 ## Decisions & tradeoffs
 
-**Claude Code skill vs Standalone Python** — Went back and forth on whether to just build a Python CLI. Ended up wrapping it with a Claude Code skill to expand on the AI skills conversation we had. The Python script still works standalone, for example: (`python main.py --size 500 --industry healthcare)
+**Claude Code skill vs Standalone Python** — I went back and forth on whether to just build a Python CLI. I ended up wrapping the Python program with a Claude Code skill to expand on the AI skills and efficiency conversation we had. The Python script still works standalone, for example: (`python main.py --size 500 --industry healthcare)
 
-**Depth over breadth on data sources** — Considered adding Azure AD, network logs, vuln scans, etc. Decided 6 solid data types with realistic imperfections beats 12 shallow ones that all look fake. AWS CloudTrail + IAM + auth events + endpoints covers enough to make the security scenarios work.
+**Depth over breadth on data sources** — I considered adding Azure AD, network logs, vuln scans, etc. I decided 6 solid data types to start would be better than 18 more shallow or incomplete ones. AWS CloudTrail + IAM + auth events + endpoints covers enough to make the security scenarios work.
 
 **Imperfections baked in** — Each generator has intentional imperfections (missing fields, stale refs, inconsistent tags).
 
-**Scenarios modify baseline data in-place** — The over-permissioned user is a real employee whose IAM policy gets swapped. The credential stuffing targets real accounts. Generating scenarios as separate event streams would make them obvious and disconnected. The whole point is traceability through the data.
+**Scenarios modify baseline data in-place** — The over-permissioned user is a real employee whose IAM policy gets swapped. The credential stuffing targets real accounts. 
 
-**Both JSON and YAML output formats** — Originally planned to split (JSON for logs, YAML for config) to match conventions. But the consumer might be a SIEM, an IaC tool, or a person.
+**Both JSON and YAML output formats** — Originally planned to split (JSON for logs, YAML for config) to match conventions. But the consumer might be a SIEM, an IaC tool, or a person, etc.
 
 **Generic departments, not industry-specific** — Considered per-industry org charts (healthcare with "Nursing", construction with "Field Ops") but the security scenarios don't care what the department is called. Added complexity for no real improvement in the demo output.
 
@@ -18,11 +18,9 @@
 
 Future potential enhancements:
 
-- **Data Robustness** — Increase the number of data sources and expand on the schema
-- **Additional Security Scenarios** — Increase the number of security scenarios and rotate them randomize them throughout the datasets
-- **Multi-cloud** — AWS only. Spreading across three cloud surfaces would dilute depth without adding much to the security demo.
-- **Multi-cloud** — AWS only. Spreading across three cloud surfaces would dilute depth without adding much to the security demo.
-- **Multi-cloud** — AWS only. Spreading across three cloud surfaces would dilute depth without adding much to the security demo.
+- **Data Robustness** — Increase the number of data sources, and expand on the schemas.
+- **Additional Security Scenarios** — Increase the number of security scenarios and randomize them throughout the datasets.
+- **Multi-cloud** — AWS only. Multi-Cloud events would enrich the output.
 - **Network/DNS logs** — All 6 scenarios are detectable through CloudTrail + auth + IAM. Network logs might be too noisy.
 - **Per-scenario toggles** — All 6 run every time. Easy to add later but premature for a prototype.
 - **Database layer** — Flat files are simpler, portable, and easy to inspect.
