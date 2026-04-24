@@ -38,7 +38,15 @@ aerospace, agriculture, biotech, consulting, construction, defense, education, e
 
 ## Execution
 
-Once you have valid parameters, run the generator:
+Do NOT run `--help` or read source code. Just run the generator immediately.
+
+**No prompt provided:** Run with no arguments — the script handles random defaults internally:
+
+```bash
+python main.py
+```
+
+**Prompt provided:** Pass the parsed values:
 
 ```bash
 python main.py --size <SIZE> --industry <INDUSTRY> [--name <COMPANY_NAME>] [--seed <SEED>]
