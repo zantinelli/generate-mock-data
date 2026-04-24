@@ -1,7 +1,7 @@
 # Plan: Security Demo Data Generator
 
 ## Context
-Interview deliverable for a Technical Solutions Architect role. The evaluator is heavy on AI/Claude Code usage and wants to see realistic lab/demo data generation. The primary interface is a **Claude Code skill** — the user feeds it a short prompt describing the company context, and the skill guides Claude to generate realistic, imperfect security data using Python generators underneath.
+The primary interface is a **Claude Code skill** — the user feeds it a short prompt describing the company context, and the skill guides Claude to generate realistic, imperfect security data using Python generators underneath.
 
 ## Core Concept
 **Skill as playbook, Python as toolkit.** The Claude skill (`.claude/skills/generate-mock-data/SKILL.md`) contains all the domain knowledge: what data types to generate, what schemas to follow, how to introduce realistic imperfections, and what security scenarios to embed. The Python generators (`generators/*.py`) are the execution layer the skill instructs Claude to call.
@@ -173,9 +173,9 @@ Every data type is generated in **both JSON and YAML**. Each output file gets a 
 ## Verification
 1. Invoke skill with prompt: `/generate-mock-data 500 person healthcare company`
 2. Invoke skill with no prompt (random defaults): `/generate-mock-data`
-3. Invoke skill with bad prompt (should reject): `/generate-mock-data make me stuff`
+3. Invoke skill with bad prompt (rejected with help text): `/generate-mock-data make me stuff`
 4. Test standalone CLI: `python main.py --size 150 --industry fintech`
-5. Spot-check JSON for internal consistency (user IDs match across files)
+5. Spot-check data for internal consistency (user IDs match across files, data meets requirements)
 6. Verify security scenarios are detectable in the output
 7. Confirm realistic imperfections exist (missing fields, stale data, etc.)
 8. Run `ruff check --output-format=concise` — zero issues
