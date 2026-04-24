@@ -28,13 +28,13 @@ Examples:
 >
 > **Format:** `<size> person <industry> [company name]`
 >
-> **Supported industries:** fintech, healthcare, construction, manufacturing, retail, logistics, education, insurance, energy, defense, media, legal, real-estate, saas, biotech, consulting, telecom, aerospace, agriculture, hospitality
+> **Supported industries:** aerospace, agriculture, biotech, consulting, construction, defense, education, energy, fintech, healthcare, hospitality, insurance, legal, logistics, manufacturing, media, real-estate, retail, saas, telecom
 
 Then stop and wait for the user to provide a corrected prompt.
 
 ## Supported Industries
 
-fintech, healthcare, construction, manufacturing, retail, logistics, education, insurance, energy, defense, media, legal, real-estate, saas, biotech, consulting, telecom, aerospace, agriculture, hospitality
+aerospace, agriculture, biotech, consulting, construction, defense, education, energy, fintech, healthcare, hospitality, insurance, legal, logistics, manufacturing, media, real-estate, retail, saas, telecom
 
 ## Execution
 
