@@ -55,6 +55,7 @@ git clone https://github.com/zantinelli/generate-mock-data.git && cd generate-mo
 pip install faker pyyaml
 
 # Now open a claude code session from the project directory
+claude
 ```
 
 ## Usage
