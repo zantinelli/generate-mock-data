@@ -240,7 +240,7 @@ def _apply_employee_imperfections(employee: dict, hire_date: date, fake) -> None
 
     # 10% missing phone
     if random.random() > 0.10:
-        employee["phone"] = fake.phone_number()
+        employee["phone"] = fake.basic_phone_number()
 
     # 5% terminated employees (still in the system)
     earliest_term = hire_date + timedelta(days=90)
