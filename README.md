@@ -2,7 +2,7 @@
 
 A Claude Code skill that generates realistic security demo data for fictional companies. 
 
-Feed it a short prompt (or not prompt for random data) like `500 person healthcare company` and it produces internally consistent CloudTrail logs, auth events, endpoint telemetry, IAM configurations, and embedded security scenarios.
+Feed it a short prompt (or no prompt for random data) like `500 person healthcare company` and it produces internally consistent CloudTrail logs, auth events, endpoint telemetry, IAM configurations, and embedded security scenarios.
 
 ## Overview
 
@@ -73,7 +73,7 @@ Or with no prompt for fully random defaults (random industry, random size 100-20
 /generate-mock-data
 ```
 
-![Demo](assets/demo.gif)
+![Demo](assets/demo.mp4)
 
 **Supported industries:**
 
